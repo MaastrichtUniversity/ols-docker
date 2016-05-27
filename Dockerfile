@@ -15,8 +15,6 @@ RUN apt-get update && apt-get install -y \
 ENV OLS_HOME /opt/OLS
 ENV CATALINA_OPTS "-Xms2g -Xmx2g"
 ENV OLS_VERSION 3.0.0.RELEASE
-ENV MEMORY_USE "-Xmx22g -Xms16g"
-
 
 ADD ols-config.yaml /tmp/		
 ADD obo-config.yaml /tmp/	
@@ -55,7 +53,8 @@ RUN mongod --fork --logpath /var/log/mongodb.log \
 	&& java -Dols.home=/opt/OLS -jar /opt/OLS/ols-apps/ols-config-importer/target/ols-config-importer.jar
 
 ## Start MongoDB and SOLR
-## Then start the indexation process cd /etc/init.d/ \
+## Then start the indexation process cd /etc/init.d/
+ENV MEMORY_USE "-Xmx4g -Xms4g"
 RUN mongod --fork --logpath /var/log/mongodb.log \
   && /opt/solr/bin/solr -Dsolr.solr.home=/opt/OLS/ols-solr/src/main/solr-5-config/ -Dsolr.data.dir=/opt/OLS \  
 	&& java ${MEMORY_USE} -Dols.home=/opt/OLS -jar /opt/OLS/ols-apps/ols-loading-app/target/ols-indexer.jar  
