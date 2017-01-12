@@ -1,8 +1,5 @@
 FROM ubuntu:16.04
 
-
-#sysctl -w kernel.pax.softmode=1
-
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
 RUN apt-get update && apt-get install -y \
@@ -17,11 +14,14 @@ RUN apt-get update && apt-get install -y \
 
 ENV OLS_HOME /opt/OLS
 ENV CATALINA_OPTS "-Xms2g -Xmx2g"
-ENV OLS_VERSION 3.0.0.RELEASE
+## The 3.1.0.RELEASE has a bug with a hard coded path therefor we use  this commit
+ENV OLS_VERSION dc03b5fc6bd46b4052e231dea046d1d4bba6037d
 ENV SOLR_VERSION 5.5.3
 
 ADD ols-config.yaml /tmp/		
 ADD obo-config.yaml /tmp/	
+## The install_solr_service.sh version from solr 5.5.3 has an issue with certain docker configurations
+## Therefor we use the script of solr 6.3.0.  solr 6.3.0 is not compatible with OLS 
 ADD 630_install_solr_service.sh /tmp/install_solr_service.sh
 
 ## Prepare MongoDB directories
