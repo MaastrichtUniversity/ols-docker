@@ -1,5 +1,8 @@
 FROM ubuntu:16.04
 
+
+#sysctl -w kernel.pax.softmode=1
+
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
 RUN apt-get update && apt-get install -y \
@@ -15,9 +18,11 @@ RUN apt-get update && apt-get install -y \
 ENV OLS_HOME /opt/OLS
 ENV CATALINA_OPTS "-Xms2g -Xmx2g"
 ENV OLS_VERSION 3.0.0.RELEASE
+ENV SOLR_VERSION 5.5.3
 
 ADD ols-config.yaml /tmp/		
 ADD obo-config.yaml /tmp/	
+ADD 630_install_solr_service.sh /tmp/install_solr_service.sh
 
 ## Prepare MongoDB directories
 RUN mkdir /data/ 
@@ -30,9 +35,10 @@ RUN git clone https://github.com/EBISPOT/OLS.git /opt/OLS \
 
 ### Install and stop solr 
 RUN cd /opt \
-  && wget http://archive.apache.org/dist/lucene/solr/5.5.1/solr-5.5.1.tgz \
-	&& tar xzf solr-5.5.1.tgz solr-5.5.1/bin/install_solr_service.sh --strip-components=2 \
-	&& bash ./install_solr_service.sh solr-5.5.1.tgz \
+  && wget http://archive.apache.org/dist/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz \
+	#&& tar xzf solr-${SOLR_VERSION}.tgz solr-${SOLR_VERSION}/bin/install_solr_service.sh --strip-components=2 \
+	&& cp /tmp/install_solr_service.sh /opt/install_solr_service.sh \
+  && bash ./install_solr_service.sh solr-${SOLR_VERSION}.tgz \
 	&& service solr stop 
 
 ## Prepare configuration files
