@@ -56,7 +56,8 @@ RUN cd /opt/OLS/ \
 ## Start MongoDB and 
 ### Load configuration into MongoDB
 RUN mongod --fork --logpath /var/log/mongodb.log \
-	&& java -Dols.home=/opt/OLS -jar /opt/OLS/ols-apps/ols-config-importer/target/ols-config-importer.jar
+	&& java -Dols.home=/opt/OLS -jar /opt/OLS/ols-apps/ols-config-importer/target/ols-config-importer.jar \
+	&& sleep 10
 
 ## Start MongoDB and SOLR
 ## Then start the indexation process cd /etc/init.d/
@@ -65,8 +66,9 @@ RUN mongod --fork --logpath /var/log/mongodb.log \
   && /opt/solr/bin/solr -Dsolr.solr.home=/opt/OLS/ols-solr/src/main/solr-5-config/ -Dsolr.data.dir=/opt/OLS \  
 	&& java ${MEMORY_USE} -Dols.home=/opt/OLS -jar /opt/OLS/ols-apps/ols-loading-app/target/ols-indexer.jar  
 
-##Copy webapp to tomcat dir and set permissions
-RUN cp /opt/OLS/ols-web/target/ols-boot.war /var/lib/tomcat7/webapps 
+## Copy webapp to tomcat dir, replace the ROOT webapplication with boot-ols.war and set permissions
+RUN rm -R /var/lib/tomcat7/webapps/ROOT/
+RUN cp /opt/OLS/ols-web/target/ols-boot.war /var/lib/tomcat7/webapps/ROOT.war
 RUN chown -R tomcat7:tomcat7 /opt/OLS/
 
 ## Expose the tomcat port 

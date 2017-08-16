@@ -13,7 +13,6 @@ More info on how the configuration file should look, can be found at [here](http
 The following commands can be used to build and run the images (Big ontologies can take a lot of time and memory, NCBITAXON takes 22G of memory). 
 The docker is configured to use 4G of memory. This can be changed in the settings (`MEMORY_USE "-Xmx4g -Xms4g"`). 
 
-  1. docker build -t ols .
-  2. docker run -d -p 8080:8080 -t ols
-
-The server can than be accessed at http://localhost:8080/ols-boot.  
+  1. `docker build -t ols .`
+  2. `docker run -d -p 8080:8080 -t ols`
+  3. Access the OLS through your browser on http://localhost:8080  
