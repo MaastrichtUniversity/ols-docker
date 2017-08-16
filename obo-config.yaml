@@ -57,6 +57,8 @@ ontologies:
     - {id: obi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi.owl', title: OBI}
     - {id: obi/obi_core.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi/obi_core.owl',
       title: OBI Core}
+  synonym_property:
+    - http://purl.obolibrary.org/obo/IAO_0000118
   title: Ontology for Biomedical Investigations
   tracker: http://purl.obofoundry.org/obo/obi/tracker
 
@@ -221,6 +223,8 @@ ontologies:
   products:
     - {id: chebi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.owl'}
     - {id: chebi.obo, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.obo'}
+  synonym_property:
+  - http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym
   title: Chemical Entities of Biological Interest
   tracker: https://sourceforge.net/p/chebi/curator-requests/
   twitter: chebit
