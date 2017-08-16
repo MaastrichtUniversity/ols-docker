@@ -6,11 +6,18 @@ baseurl: /
 imgurl: /images
 author:
   name: OBO Technical WG
+
+
 ## --Anything above this line can be edited in _config_header.yml --
 ## --Everything below this line automatically generated in _config.yml --
+## -- -- NOTE: The DataHub ols-docker does not use _config files as descibed above. We tend to manually change the config below.
+
+
 ontologies:
+
+# Basic Formal Ontology (BFO)
 - browsers:
-  - {label: BioPortal, title: BioPortal Browser, url: 'http://bioportal.bioontology.org/ontologies/BFO?p=classes'}
+    - {label: BioPortal, title: BioPortal Browser, url: 'http://bioportal.bioontology.org/ontologies/BFO?p=classes'}
   contact: {email: phismith@buffalo.edu, label: Barry Smith}
   depicted_by: https://avatars2.githubusercontent.com/u/12972134?v=3&s=200
   description: The upper level ontology upon which OBO Foundry ontologies are built.
@@ -23,12 +30,14 @@ ontologies:
   mailing_list: https://groups.google.com/forum/#!forum/bfo-discuss
   ontology_purl: http://purl.obolibrary.org/obo/bfo.owl
   products:
-  - {id: bfo.owl, ontology_purl: 'http://purl.obolibrary.org/obo/bfo.owl'}
-  - {id: bfo.obo, ontology_purl: 'http://purl.obolibrary.org/obo/bfo.obo'}
+    - {id: bfo.owl, ontology_purl: 'http://purl.obolibrary.org/obo/bfo.owl'}
+    - {id: bfo.obo, ontology_purl: 'http://purl.obolibrary.org/obo/bfo.obo'}
   title: Basic Formal Ontology
   tracker: https://github.com/BFO-ontology/BFO/issues
+
+# Ontology for Biomedical Investigation (OBI)
 - browsers:
-  - {label: BioPortal, title: BioPortal Browser, url: 'http://bioportal.bioontology.org/ontologies/OBI?p=classes'}
+    - {label: BioPortal, title: BioPortal Browser, url: 'http://bioportal.bioontology.org/ontologies/OBI?p=classes'}
   build: {source_url: 'http://purl.obofoundry.org/obo/obi/repository/trunk/src/ontology/branches/'}
   contact: {email: bpeters@liai.org, label: Bjoern Peters}
   depicted_by: https://svn.code.sf.net/p/obi/code/trunk/web/htdocs/images/obi-lotext.png
@@ -45,13 +54,15 @@ ontologies:
   mailing_list: http://groups.google.com/group/obi-users
   ontology_purl: http://purl.obolibrary.org/obo/obi.owl
   products:
-  - {id: obi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi.owl', title: OBI}
-  - {id: obi/obi_core.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi/obi_core.owl',
-    title: OBI Core}
+    - {id: obi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi.owl', title: OBI}
+    - {id: obi/obi_core.owl, ontology_purl: 'http://purl.obolibrary.org/obo/obi/obi_core.owl',
+      title: OBI Core}
   title: Ontology for Biomedical Investigations
   tracker: http://purl.obofoundry.org/obo/obi/tracker
+
+# Phenotypic quality (PATO)
 - browsers:
-  - {label: BioPortal, title: BioPortal Ontology Browser, url: 'https://bioportal.bioontology.org/ontologies/PATO'}
+    - {label: BioPortal, title: BioPortal Ontology Browser, url: 'https://bioportal.bioontology.org/ontologies/PATO'}
   build: {infallible: 1, method: obo2owl, source_url: 'https://raw.githubusercontent.com/pato-ontology/pato/master/pato.obo'}
   contact: {email: g.gkoutos@gmail.com, label: George Gkoutos}
   description: An ontology of phenotypic qualities (properties, attributes or characteristics)
@@ -60,17 +71,19 @@ ontologies:
   id: pato
   in_foundry_order: 1
   jobs:
-  - {id: 'https://travis-ci.org/pato-ontology/pato', type: travis-ci}
+    - {id: 'https://travis-ci.org/pato-ontology/pato', type: travis-ci}
   layout: ontology_detail
   license: {label: CC-BY, logo: 'http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png',
     url: 'http://creativecommons.org/licenses/by/3.0/'}
   ontology_purl: http://purl.obolibrary.org/obo/pato.owl
   products:
-  - {id: pato.owl, ontology_purl: 'http://purl.obolibrary.org/obo/pato.owl'}
-  - {id: pato.obo, ontology_purl: 'http://purl.obolibrary.org/obo/pato.obo'}
+    - {id: pato.owl, ontology_purl: 'http://purl.obolibrary.org/obo/pato.owl'}
+    - {id: pato.obo, ontology_purl: 'http://purl.obolibrary.org/obo/pato.obo'}
   repository: https://github.com/pato-ontology/pato/
   title: Phenotypic quality
   tracker: https://github.com/pato-ontology/pato/issues
+
+# Units of measurement (UO)
 - build: {method: obo2owl, source_url: 'https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/unit.obo'}
   contact: {email: g.gkoutos@gmail.com, label: George Gkoutos}
   description: Metrical units for use in conjunction with PATO
@@ -83,9 +96,11 @@ ontologies:
     url: 'http://creativecommons.org/licenses/by/3.0/'}
   ontology_purl: http://purl.obolibrary.org/obo/uo.owl
   products:
-  - {id: uo.owl, ontology_purl: 'http://purl.obolibrary.org/obo/uo.owl'}
+    - {id: uo.owl, ontology_purl: 'http://purl.obolibrary.org/obo/uo.owl'}
   title: Units of measurement
   tracker: https://github.com/bio-ontology-research-group/unit-ontology/issues
+
+# NCI Thesaurus (NCIT)
 - contact: {email: NCICB Support, label: ncicb@pop.nci.nih.gov}
   description: an ontology-like vocabulary that includes broad coverage of the cancer
     domain, including cancer related diseases, findings and abnormalities
@@ -94,19 +109,21 @@ ontologies:
   layout: ontology_detail
   title: NCI Thesaurus
   uri_prefix: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#
+
+# Uber-anatomy ontology (UBERON)
 - biosharing: https://www.biosharing.org/bsg-000016
   browsers:
-  - {label: RGD, title: Gene Ontology AmiGO 2 Browser, url: 'http://rgd.mcw.edu/rgdweb/ontology/view.html?acc_id=UBERON:0001062'}
-  - {label: AmiGO (SUBSET), title: Gene Ontology AmiGO 2 Browser, url: 'http://amigo.geneontology.org/amigo/term/UBERON:0001062#display-lineage-tab'}
+    - {label: RGD, title: Gene Ontology AmiGO 2 Browser, url: 'http://rgd.mcw.edu/rgdweb/ontology/view.html?acc_id=UBERON:0001062'}
+    - {label: AmiGO (SUBSET), title: Gene Ontology AmiGO 2 Browser, url: 'http://amigo.geneontology.org/amigo/term/UBERON:0001062#display-lineage-tab'}
   build: {checkout: 'svn --ignore-externals co http://svn.code.sf.net/p/obo/svn/uberon/trunk',
     email_cc: cjmungall@lbl.gov, infallible: 1, method: vcs, system: svn}
   canonical: uberon.owl
   contact: {email: cjmungall@lbl.gov, label: Chris Mungall}
   dependencies:
-  - {id: go, subset: uberon/go_import.owl}
-  - {id: cl, subset: uberon/cl_import.owl}
-  - {id: chebi, subset: uberon/chebi_import.owl}
-  - {id: pr, subset: uberon/pr_import.owl}
+    - {id: go, subset: uberon/go_import.owl}
+    - {id: cl, subset: uberon/cl_import.owl}
+    - {id: chebi, subset: uberon/chebi_import.owl}
+    - {id: pr, subset: uberon/pr_import.owl}
   depicted_by: http://uberon.github.io/images/u-logo.jpg
   description: An integrated cross-species anatomy ontology covering animals and bridging
     multiple species-specific ontologies
@@ -124,49 +141,49 @@ ontologies:
   ontology_purl: http://purl.obolibrary.org/obo/uberon.owl
   page: http://en.wikipedia.org/wiki/Uberon
   products:
-  - {description: core ontology, id: uberon.owl, is_canonical: true, ontology_purl: 'http://purl.obolibrary.org/obo/uberon.owl',
-    title: Uberon, type: 'owl:Ontology'}
-  - {description: Uberon extended, id: uberon/ext.owl, mireots_from: ncbitaxon, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/ext.owl',
-    title: Uberon edition that includes subsets of other ontologies and axioms connecting
-      to them, type: 'owl:Ontology'}
-  - {description: Uberon edition that excludes external ontologies and most relations,
-    format: obo, id: uberon/basic.obo, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/basic.obo',
-    title: Uberon basic, type: obo-basic-ontology}
-  - connects:
-    - {id: uberon}
-    - {id: zfa}
-    description: Taxonomic equivalence axioms connecting zebrafish-specific classes
-      to generic uberon counterparts
-    id: uberon/bridge/uberon-bridge-to-zfa.owl
-    ontology_purl: http://purl.obolibrary.org/obo/uberon/bridge/uberon-bridge-to-zfa.owl
-    page: https://github.com/obophenotype/uberon/wiki/inter-anatomy-ontology-bridge-ontologies
-    title: Uberon bridge to ZFA
-    type: BridgeOntology
-  - connects:
-    - {id: uberon}
-    - {id: ma}
-    description: Taxonomic equivalence axioms connecting adult mouse specific classes
-      to generic uberon counterparts
-    id: uberon/bridge/uberon-bridge-to-ma.owl
-    ontology_purl: http://purl.obolibrary.org/obo/uberon/bridge/uberon-bridge-to-ma.owl
-    page: https://github.com/obophenotype/uberon/wiki/inter-anatomy-ontology-bridge-ontologies
-    title: Uberon bridge to MA
-    type: BridgeOntology
-  - {description: Extended uberon plus all metazoan ontologies, id: uberon/composite-metazoan.owl,
-    mireots_from: ehdaa2, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/composite-metazoan.owl',
-    page: 'https://github.com/obophenotype/uberon/wiki/Multi-species-composite-ontologies',
-    taxon: Metazoa, title: Uberon composite metazoan ontology, type: MergedOntology}
-  - {id: uberon/composite-vertebrate.owl, mireots_from: ehdaa2, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/composite-vertebrate.owl',
-    page: 'https://github.com/obophenotype/uberon/wiki/Multi-species-composite-ontologies',
-    taxon: Metazoa, title: Uberon composite vertebrate ontology, type: MergedOntology}
+    - {description: core ontology, id: uberon.owl, is_canonical: true, ontology_purl: 'http://purl.obolibrary.org/obo/uberon.owl',
+      title: Uberon, type: 'owl:Ontology'}
+    - {description: Uberon extended, id: uberon/ext.owl, mireots_from: ncbitaxon, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/ext.owl',
+      title: Uberon edition that includes subsets of other ontologies and axioms connecting
+        to them, type: 'owl:Ontology'}
+    - {description: Uberon edition that excludes external ontologies and most relations,
+      format: obo, id: uberon/basic.obo, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/basic.obo',
+      title: Uberon basic, type: obo-basic-ontology}
+    - connects:
+      - {id: uberon}
+      - {id: zfa}
+      description: Taxonomic equivalence axioms connecting zebrafish-specific classes
+        to generic uberon counterparts
+      id: uberon/bridge/uberon-bridge-to-zfa.owl
+      ontology_purl: http://purl.obolibrary.org/obo/uberon/bridge/uberon-bridge-to-zfa.owl
+      page: https://github.com/obophenotype/uberon/wiki/inter-anatomy-ontology-bridge-ontologies
+      title: Uberon bridge to ZFA
+      type: BridgeOntology
+    - connects:
+      - {id: uberon}
+      - {id: ma}
+      description: Taxonomic equivalence axioms connecting adult mouse specific classes
+        to generic uberon counterparts
+      id: uberon/bridge/uberon-bridge-to-ma.owl
+      ontology_purl: http://purl.obolibrary.org/obo/uberon/bridge/uberon-bridge-to-ma.owl
+      page: https://github.com/obophenotype/uberon/wiki/inter-anatomy-ontology-bridge-ontologies
+      title: Uberon bridge to MA
+      type: BridgeOntology
+    - {description: Extended uberon plus all metazoan ontologies, id: uberon/composite-metazoan.owl,
+      mireots_from: ehdaa2, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/composite-metazoan.owl',
+      page: 'https://github.com/obophenotype/uberon/wiki/Multi-species-composite-ontologies',
+      taxon: Metazoa, title: Uberon composite metazoan ontology, type: MergedOntology}
+    - {id: uberon/composite-vertebrate.owl, mireots_from: ehdaa2, ontology_purl: 'http://purl.obolibrary.org/obo/uberon/composite-vertebrate.owl',
+      page: 'https://github.com/obophenotype/uberon/wiki/Multi-species-composite-ontologies',
+      taxon: Metazoa, title: Uberon composite vertebrate ontology, type: MergedOntology}
   publications:
-  - {id: 'http://www.ncbi.nlm.nih.gov/pubmed/22293552', title: 'Uberon, an integrative
-      multi-species anatomy ontology'}
-  - {id: 'http://www.ncbi.nlm.nih.gov/pubmed/25009735', title: Unification of multi-species
-      vertebrate anatomy ontologies for comparative biology in Uberon}
+    - {id: 'http://www.ncbi.nlm.nih.gov/pubmed/22293552', title: 'Uberon, an integrative
+        multi-species anatomy ontology'}
+    - {id: 'http://www.ncbi.nlm.nih.gov/pubmed/25009735', title: Unification of multi-species
+        vertebrate anatomy ontologies for comparative biology in Uberon}
   redirects:
-  - {match: releases/, url: 'http://svn.code.sf.net/p/obo/svn/uberon/releases/'}
-  - {match: '', url: 'http://berkeleybop.org/ontologies/uberon/'}
+    - {match: releases/, url: 'http://svn.code.sf.net/p/obo/svn/uberon/releases/'}
+    - {match: '', url: 'http://berkeleybop.org/ontologies/uberon/'}
   releases: http://purl.obolibrary.org/obo/uberon/releases/
   repository: https://github.com/obophenotype/uberon
   taxon: {id: 'NCBITaxon:33208', label: Metazoa}
@@ -175,19 +192,21 @@ ontologies:
   twitter: uberanat
   type: owl:Ontology
   used_by:
-  - {label: bgee, seeAlso: 'https://www.biosharing.org/biodbcore-000228', type: Database,
-    url: 'http://bgee.org/'}
-  - {label: ENCODE, seeAlso: 'https://www.biosharing.org/biodbcore-000034', url: 'https://www.encodeproject.org/'}
-  - {label: FANTOM5, url: 'http://fantom5-collaboration.gsc.riken.jp/'}
-  - {label: Monarch, type: Database, url: 'https://monarchinitiative.org/'}
-  - {label: GO Database, type: Database, url: 'https://geneontology.org/'}
-  - {label: Phenoscape, url: 'http://phenoscape.org'}
-  - {label: Neuroscience Information Framework, type: Database, url: 'https://neuinfo.org/'}
-  - {label: SciCrunch, type: Database, url: 'https://scicrunch.org/'}
+    - {label: bgee, seeAlso: 'https://www.biosharing.org/biodbcore-000228', type: Database,
+      url: 'http://bgee.org/'}
+    - {label: ENCODE, seeAlso: 'https://www.biosharing.org/biodbcore-000034', url: 'https://www.encodeproject.org/'}
+    - {label: FANTOM5, url: 'http://fantom5-collaboration.gsc.riken.jp/'}
+    - {label: Monarch, type: Database, url: 'https://monarchinitiative.org/'}
+    - {label: GO Database, type: Database, url: 'https://geneontology.org/'}
+    - {label: Phenoscape, url: 'http://phenoscape.org'}
+    - {label: Neuroscience Information Framework, type: Database, url: 'https://neuinfo.org/'}
+    - {label: SciCrunch, type: Database, url: 'https://scicrunch.org/'}
   wikidata_template: https://en.wikipedia.org/wiki/Template:Uberon
+
+# Chemical Entities of Biological Interest (CHEBI)
 - alternatePrefix: ChEBI
   browsers:
-  - {label: CHEBI, title: EBI CHEBI Browser, url: 'http://www.ebi.ac.uk/chebi/chebiOntology.do?treeView=true&chebiId=CHEBI:24431#graphView'}
+    - {label: CHEBI, title: EBI CHEBI Browser, url: 'http://www.ebi.ac.uk/chebi/chebiOntology.do?treeView=true&chebiId=CHEBI:24431#graphView'}
   build: {infallible: 1, method: archive, path: archive/main, source_url: 'http://build.berkeleybop.org/job/build-chebi/lastSuccessfulBuild/artifact/*zip*/archive.zip'}
   contact: {email: gowen@ebi.ac.uk, label: Gareth Owen}
   description: A structured classification of molecular entities of biological interest
@@ -200,8 +219,8 @@ ontologies:
   ontology_purl: http://purl.obolibrary.org/obo/chebi.owl
   page: http://www.ebi.ac.uk/chebi/init.do?toolBarForward=userManual
   products:
-  - {id: chebi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.owl'}
-  - {id: chebi.obo, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.obo'}
+    - {id: chebi.owl, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.owl'}
+    - {id: chebi.obo, ontology_purl: 'http://purl.obolibrary.org/obo/chebi.obo'}
   title: Chemical Entities of Biological Interest
   tracker: https://sourceforge.net/p/chebi/curator-requests/
   twitter: chebit
