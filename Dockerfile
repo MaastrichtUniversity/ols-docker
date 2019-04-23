@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 ENV OLS_HOME /opt/OLS
 ENV CATALINA_OPTS "-Xms2g -Xmx2g"
-## The 3.1.0.RELEASE has a bug with a hard coded path therefor we use  this commit
-ENV OLS_VERSION dc03b5fc6bd46b4052e231dea046d1d4bba6037d
+
+ENV OLS_VERSION 964b6ca2a2e406195cd63627a89257eebe3eaab9
 ENV SOLR_VERSION 5.5.3
 
 ADD ols-config.yaml /tmp/		
